@@ -8,41 +8,10 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <div id="auth-section" class="card">
-    <h2>Đăng nhập</h2>
-    <form id="login-form">
-      <input type="email" id="login-email" placeholder="Email" required autocomplete="off" />
-      <input type="password" id="login-password" placeholder="Mật khẩu" required autocomplete="off" />
-      <button type="submit">Đăng nhập</button>
-    </form>
-    <p>
-      <a href="#" id="show-register">Đăng ký</a> |
-      <a href="#" id="show-reset">Quên mật khẩu?</a>
-    </p>
-
-    <div id="register" class="hidden">
-      <h3>Đăng ký</h3>
-      <form id="register-form">
-        <input type="email" id="register-email" placeholder="Email" required />
-        <input type="password" id="register-password" placeholder="Mật khẩu" required />
-        <button type="submit">Tạo tài khoản</button>
-      </form>
-    </div>
-
-    <div id="reset" class="hidden">
-      <h3>Đặt lại mật khẩu</h3>
-      <form id="reset-form">
-        <input type="email" id="reset-email" placeholder="Email" required />
-        <button type="submit">Gửi liên kết đặt lại</button>
-      </form>
-    </div>
-  </div>
-
-  <div id="app" class="hidden">
+  <div id="app">
     <header>
       <h1>Bảng điều khiển chi tiêu</h1>
       <div>
-        <button id="logout">Đăng xuất</button>
         <button id="toggle-theme" title="Chuyển giao diện">🌙</button>
       </div>
     </header>
@@ -117,6 +86,6 @@
     </section>
   </div>
 
-  <script type="module" src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
