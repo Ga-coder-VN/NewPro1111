@@ -392,4 +392,4 @@ function updateCharts(transactions) {
     data: { labels: Object.keys(timeline), datasets: [{ label: 'Chi tiêu theo tháng', data: Object.values(timeline), borderColor: '#764ba2', backgroundColor: 'rgba(118,75,162,0.2)', fill: true, tension: 0.3 }] },
     options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Chi tiêu theo thời gian' } }, scales: { y: { beginAtZero: true } } }
   });
-}
+}// moi ngay hom nay
