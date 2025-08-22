@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý Chi tiêu Sinh viên</title>
+  <link rel="stylesheet" href="style.css?v=1.0.3" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+ 
+
+
+</head>
+<body>
+  <div id="auth-section" class="card">
+    <h2>Đăng nhập</h2>
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Email" required />
+      <input type="password" id="login-password" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <p>
+      <a href="#" id="show-register">Đăng ký</a> |
+      <a href="#" id="show-reset">Quên mật khẩu?</a>
+    </p>
+
+    <div id="register" class="hidden">
+      <h3>Đăng ký</h3>
+      <form id="register-form">
+        <input type="text" id="register-name" placeholder="Họ tên" required />
+        <input type="email" id="register-email" placeholder="Email" required />
+        <input type="password" id="register-password" placeholder="Mật khẩu" required />
+        <button type="submit">Tạo tài khoản</button>
+      </form>
+    </div>
+
+    <div id="reset" class="hidden">
+      <h3>Đặt lại mật khẩu</h3>
+      <form id="reset-form">
+        <input type="email" id="reset-email" placeholder="Email" required />
+        <button type="submit">Gửi liên kết đặt lại</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <header>
+      <h1 id="welcome-message">Xin chào!</h1>
+      <div>
+        <button id="logout">Đăng xuất</button>
+        <button id="toggle-theme">🌙</button>
+      </div>
+    </header>
+
+    <section id="stats">
+      <div class="card"><h3>Số dư: <span id="balance">0 ₫</span></h3></div>
+      <div class="card">
+        <h3>Ngân sách: <span id="budget-display">0 ₫</span></h3>
+        <button id="set-budget-btn">Đặt ngân sách</button>
+      </div>
+    </section>
+
+    <section id="transaction-form" class="card">
+      <h2>Thêm giao dịch</h2>
+      <form id="add-transaction-form">
+        <select id="type">
+          <option value="income">Thu</option>
+          <option value="expense">Chi</option>
+        </select>
+        <input type="number" id="amount" placeholder="Số tiền" required />
+        <input type="text" id="description" placeholder="Mô tả" required />
+        <input type="date" id="date" required />
+        <select id="category">
+          <option>Ăn uống</option>
+          <option>Đi lại</option>
+          <option>Học tập</option>
+          <option>Giải trí</option>
+          <option>Sức khỏe</option>
+          <option>Mua sắm</option>
+        </select>
+        <button type="submit">Thêm</button>
+      </form>
+    </section>
+
+    <section id="filters" class="card">
+      <h2>Bộ lọc</h2>
+      <input type="text" id="search" placeholder="Tìm kiếm mô tả" />
+      <input type="date" id="filter-date" />
+      <select id="filter-category">
+        <option value="">Tất cả danh mục</option>
+        <option>Ăn uống</option>
+        <option>Đi lại</option>
+        <option>Học tập</option>
+        <option>Giải trí</option>
+        <option>Sức khỏe</option>
+        <option>Mua sắm</option>
+      </select>
+       <!-- ✅ Nút lọc -->
+      <button id="apply-filter">Lọc</button>
+    </section>
+
+    <section id="transactions" class="card">
+      <h2>Giao dịch</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Ngày</th><th>Mô tả</th><th>Danh mục</th><th>Số tiền</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="transaction-table"></tbody>
+      </table>
+    </section>
+
+  <section id="charts" class="card">
+    <h2>Biểu đồ</h2>
+      <div class="chart-row">
+        <div class="chart-box">
+          <h3>Thu theo danh mục</h3>
+            <canvas id="income-chart" ></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Chi theo danh mục</h3>
+            <canvas id="expense-chart"></canvas>
+        </div>
+        <div class="chart-box-full">
+            <h3>Chi tiêu theo thời gian</h3>
+              <canvas id="time-chart"></canvas>
+          </div>
+
+      </div>
+    </section>
+
+
+    <section id="account-info" class="card">
+      <h2>Tài khoản</h2>
+      <p>Họ tên: <span id="user-name-display"></span></p>
+      <p>Email: <span id="user-email-display"></span></p>
+      <button id="edit-name-btn">Chỉnh sửa tên</button>
+    </section>
+
+    <section id="backup" class="card">
+      <h2>Sao lưu / Phục hồi</h2>
+      <button id="export-data">Xuất Excel</button>
+      <input type="file" id="import-file" />
+    </section>
+  </div>
+
+  <script type="module" src="app.js?v=1.0.3"></script>
+</body>
+</html>
